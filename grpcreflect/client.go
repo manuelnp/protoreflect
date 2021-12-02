@@ -479,7 +479,7 @@ func (cr *Client) doSendLocked(retry bool, req *rpb.ServerReflectionRequest) (*r
 
 func (cr *Client) initStreamLocked() error {
 	if cr.stream != nil {
-		return nil
+		cr.resetLocked()
 	}
 	var newCtx context.Context
 	newCtx, cr.cancel = context.WithCancel(cr.ctx)
